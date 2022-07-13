@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<div>
+    <h2 style="text-align: center">Challenge Name</h2>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h3 style="text-align: center">Climate Impact</h3>
+
+    {% if tasks|length < 1 %}
+    <p style="text-align: center">There are no established KPIs for this metric</p>
+    {% else %}
+    <p><b>Metric 1</b></p>p>
+    <table>
+        <tr>
+            <th>KPI</th>
+            <th>Outcome</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.KPI}}</td>
+            <td>{{ task.outcome}}</td>
+            <td>{{ task.date.date()}}</td>
+            <td>
+                <a href="/delete/{{task.id}}">Delete</a>
+                <br>
+                <a href="/update/{{task.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <a href= "/launchaddscreen">Add KPI</a>
+    <hr/>
+
+    <!-- <form action="/" method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Add KPI">
+    </form> -->
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class = "content">
+    <h1 style="text-align: center">Add KPI</h1>
+
+    <form action="/add" method="POST">
+        <label for="metric">Metric:</label>
+        <select name="metric" id="metric">
+            <option value="Metric 1">Metric 1</option>
+        </select>
+        <br>
+        <label for="KPI">KPI:</label>
+        <select name="KPI" id="KPI">
+            <option value="KPI 1">KPI 1</option>
+        </select>
+        <br>
+        <label for="Outcome">Outcome:</label>
+        <input type="text" name="outcome" id="outcome">
+        <br>
+        <input type="submit" value="Add KPI">
+    </form>
+    
+</div>
+{% endblock %}
